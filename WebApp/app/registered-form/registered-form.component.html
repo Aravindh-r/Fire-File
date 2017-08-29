@@ -1,0 +1,51 @@
+<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <div fxFlex="50%" *ngFor="let data of resultRegisteredForm" fx-flex-fill fxLayoutAlign="center">
+    <md-card>
+      <md-card-content>
+        <md-list>
+          <md-list-item>
+            <h3 md-line>{{data.firstname}} Profile</h3>
+          </md-list-item>
+          <md-list-item>
+            <h3 md-line>Registered email is : {{data.email}} </h3>
+          </md-list-item>
+          <md-list-item>
+            <h3 md-line>Username : {{data.username}} </h3>
+          </md-list-item>
+          <md-list-item>
+            <h3 md-line>Users First Name is : {{data.firstname}} </h3>
+          </md-list-item>
+          <md-list-item>
+            <h3 md-line>FullName : {{data.firstname}}  {{data.lastname}} </h3>
+          </md-list-item>
+          <md-list-item>
+            <h3 md-line>Date Of Birth : {{data.dob}} </h3>
+          </md-list-item>
+          <md-list-item>
+            <h3 md-line>Address for Commnunication: {{data.addressline1}} ,{{data.addressline2}} ,{{data.city}},{{data.state}},  {{data.pincode}}</h3>
+          </md-list-item>
+          <md-list-item>
+            <h3 md-line>About me : {{data.about}}</h3>
+          </md-list-item>
+        </md-list>
+        <div>
+          <button md-raised-button (click)="onClickEdit(data.email)" color="primary">Edit</button>
+          <!-- <button (click)="onClickEdit(data.email)">Edit</button> -->
+          <span class="spacer"></span>
+          <md-button-toggle-group>
+            <div *ngIf=(!data.like)>
+              <md-button-toggle value="bad" (click)="onLiked(data.email)">
+                <md-icon>thumb_up</md-icon>
+              </md-button-toggle>
+            </div>
+            <div *ngIf=(data.like)>
+              <md-button-toggle value="good" (click)="onUnliked(data.email)">
+                <md-icon color="primary">thumb_up</md-icon>
+              </md-button-toggle>
+            </div>
+          </md-button-toggle-group>
+        </div>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
